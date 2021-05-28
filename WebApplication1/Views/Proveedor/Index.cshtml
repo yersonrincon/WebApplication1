@@ -1,10 +1,10 @@
-﻿@model IEnumerable<WebApplication1.Models.usuario>
+﻿@model IEnumerable<WebApplication1.Models.proveedor>
 
 @{
-    ViewBag.Title = "index";
+    ViewBag.Title = "Index";
 }
 
-<h2>index</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -15,18 +15,14 @@
             @Html.DisplayNameFor(model => model.nombre)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.apellido)
+            @Html.DisplayNameFor(model => model.direccion)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.fecha_nacimiento)
+            @Html.DisplayNameFor(model => model.telefono)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.email)
+            @Html.DisplayNameFor(model => model.nombre_contacto)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.password)
-        </th>
-        
         <th></th>
     </tr>
 
@@ -34,18 +30,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.apellido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fecha_nacimiento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.password)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.direccion)

@@ -6,49 +6,44 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    public class UsuarioController : Controller
+    public class ClientesController : Controller
     {
-        // GET: Usuario
+        // GET: Proveedor
         public ActionResult Index()
         {
             using (var db = new inventario2021Entities())
             {
-                return View(db.usuario.ToList());
+
+                return View(db.cliente.ToList());
             }
         }
         public ActionResult Create()
+
         {
             return View();
+
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-        public ActionResult Create(usuario usuario)
+        public ActionResult Create(cliente cliente)
         {
-
             if (!ModelState.IsValid)
-
                 return View();
             try
             {
                 using (var db = new inventario2021Entities())
                 {
-                    usuario.password = UsuarioController.HashSHA1(usuario.password);
-                    db.usuario.Add(usuario);
+                    db.cliente.Add(cliente);
                     db.SaveChanges();
-                    return RedirectToAction("index");
+                    return RedirectToAction("Index");
                 }
             }
-            catch (Exception ex)
+            catch (Exception Ex)
             {
-                ModelState.AddModelError("", "error" + ex);
+                ModelState.AddModelError("", "error" + Ex);
                 return View();
             }
-
-
-
-
-
         }
         public static string HashSHA1(string value)
         {
@@ -83,18 +78,17 @@ namespace WebApplication1.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(usuario usuarioEdit)
+        public ActionResult Edit(cliente clienteEdit)
         {
             try
             {
                 using (var db = new inventario2021Entities())
                 {
-                    usuario user = db.usuario.Find(usuarioEdit.id);
-                    user.nombre = usuarioEdit.nombre;
-                    user.apellido = usuarioEdit.apellido;
-                    user.fecha_nacimiento = usuarioEdit.fecha_nacimiento;
-                    user.email = usuarioEdit.email;
-                    user.password = usuarioEdit.password;
+                    usuario user = db.usuario.Find(clienteEdit.id);
+                    user.nombre = clienteEdit.nombre;
+                    user.documento = clienteEdit.documento; 
+                    user.email = clienteEdit.email;
+                    
 
                     db.SaveChanges();
                     return RedirectToAction("index");
@@ -107,34 +101,25 @@ namespace WebApplication1.Controllers
                 return View();
             }
         }
-        
-        public ActionResult Details (int id)
+
+
+        public ActionResult Details(int id)
         {
             using (var db = new inventario2021Entities())
             {
-                usuario user = db.usuario.Find(id);
+                cliente user = db.cliente.Find(id);
                 return View(user);
             }
         }
-        
         public ActionResult Delete(int id)
         {
             using (inventario2021Entities db = new inventario2021Entities())
             {
-                var Usuario = db.usuario.Find(id);
-                db.usuario.Remove(Usuario);
+                var Usuario = db.cliente.Find(id);
+                db.cliente.Remove(Usuario);
                 db.SaveChanges();
                 return RedirectToAction("index");
-
             }
         }
-
     }
 }
-
-
-
-
-
-
-

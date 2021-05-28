@@ -14,6 +14,9 @@ namespace WebApplication1.Models
     
     public partial class usuario
     {
+        internal string documento;
+        internal string descripcion;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public usuario()
         {
@@ -32,5 +35,8 @@ namespace WebApplication1.Models
         public virtual ICollection<compra> compra { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<usuariorol> usuariorol { get; set; }
+        public string direccion { get; internal set; }
+        public string telefono { get; internal set; }
+        public string nombre_contacto { get; internal set; }
     }
 }

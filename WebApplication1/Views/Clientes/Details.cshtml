@@ -1,4 +1,4 @@
-﻿@model WebApplication1.Models.usuario
+﻿@model WebApplication1.Models.cliente
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>usuario</h4>
+    <h4>cliente</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -19,19 +19,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.apellido)
+            @Html.DisplayNameFor(model => model.documento)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.apellido)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.fecha_nacimiento)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fecha_nacimiento)
+            @Html.DisplayFor(model => model.documento)
         </dd>
 
         <dt>
@@ -41,16 +33,6 @@
         <dd>
             @Html.DisplayFor(model => model.email)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.password)
-        </dd>
-
-       
 
     </dl>
 </div>

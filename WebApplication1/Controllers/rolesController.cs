@@ -1,69 +1,50 @@
 ﻿using System;
 using System.Linq;
-using System.Text;
 using System.Web.Mvc;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
+
 {
-    public class UsuarioController : Controller
+    public class rolesController : Controller
     {
-        // GET: Usuario
+        // GET: Proveedor
         public ActionResult Index()
         {
             using (var db = new inventario2021Entities())
             {
-                return View(db.usuario.ToList());
+
+                return View(db.roles.ToList());
             }
         }
         public ActionResult Create()
+
         {
             return View();
+
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-        public ActionResult Create(usuario usuario)
+        public ActionResult Create(roles roles)
         {
-
             if (!ModelState.IsValid)
-
                 return View();
             try
             {
                 using (var db = new inventario2021Entities())
                 {
-                    usuario.password = UsuarioController.HashSHA1(usuario.password);
-                    db.usuario.Add(usuario);
+                    db.roles.Add(roles);
                     db.SaveChanges();
-                    return RedirectToAction("index");
+                    return RedirectToAction("Index");
                 }
             }
-            catch (Exception ex)
+            catch (Exception Ex)
             {
-                ModelState.AddModelError("", "error" + ex);
+                ModelState.AddModelError("", "error" + Ex);
                 return View();
             }
-
-
-
-
-
         }
-        public static string HashSHA1(string value)
-        {
-            var sha1 = System.Security.Cryptography.SHA1.Create();
-            var inputBytes = Encoding.ASCII.GetBytes(value);
-            var hash = sha1.ComputeHash(inputBytes);
-
-            var sb = new StringBuilder();
-            for (var i = 0; i < hash.Length; i++)
-            {
-                sb.Append(hash[i].ToString("X2"));
-            }
-            return sb.ToString();
-        }
-
         public ActionResult Edit(int id)
         {
 
@@ -71,7 +52,7 @@ namespace WebApplication1.Controllers
             {
                 using (var db = new inventario2021Entities())
                 {
-                    usuario findUser = db.usuario.Where(a => a.id == id).FirstOrDefault();
+                    roles findUser = db.roles.Where(a => a.id == id).FirstOrDefault();
                     return View(findUser);
                 }
             }
@@ -81,20 +62,18 @@ namespace WebApplication1.Controllers
                 return View();
             }
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(usuario usuarioEdit)
+        public ActionResult Edit(proveedor rolesEdit)
         {
             try
             {
                 using (var db = new inventario2021Entities())
                 {
-                    usuario user = db.usuario.Find(usuarioEdit.id);
-                    user.nombre = usuarioEdit.nombre;
-                    user.apellido = usuarioEdit.apellido;
-                    user.fecha_nacimiento = usuarioEdit.fecha_nacimiento;
-                    user.email = usuarioEdit.email;
-                    user.password = usuarioEdit.password;
+                    proveedor user = db.proveedor.Find(rolesEdit.id);
+                    user.nombre = rolesEdit.nombre;
+               
 
                     db.SaveChanges();
                     return RedirectToAction("index");
@@ -107,34 +86,26 @@ namespace WebApplication1.Controllers
                 return View();
             }
         }
-        
-        public ActionResult Details (int id)
+
+
+        public ActionResult Details(int id)
         {
             using (var db = new inventario2021Entities())
             {
-                usuario user = db.usuario.Find(id);
+                roles user = db.roles.Find(id);
                 return View(user);
             }
         }
-        
         public ActionResult Delete(int id)
         {
             using (inventario2021Entities db = new inventario2021Entities())
             {
-                var Usuario = db.usuario.Find(id);
-                db.usuario.Remove(Usuario);
+                var Usuario = db.roles.Find(id);
+                db.roles.Remove(Usuario);
                 db.SaveChanges();
                 return RedirectToAction("index");
-
             }
         }
-
     }
 }
-
-
-
-
-
-
 
