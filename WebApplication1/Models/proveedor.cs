@@ -14,6 +14,11 @@ namespace WebApplication1.Models
     
     public partial class proveedor
     {
+        internal object precio_unitario;
+        internal string descripcion;
+        internal int cantidad;
+        internal int id_proveedor;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public proveedor()
         {
