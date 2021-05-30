@@ -2,59 +2,53 @@
 
 @{
     ViewBag.Title = "Details";
+    var nombreUsuario = Model.nombre;
 }
 
-<h2>Details</h2>
+<h2>Detalles del Usuario: @nombreUsuario</h2>
 
-<div>
-    <h4>usuario</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombre)
-        </dt>
+    <div>
+        <h4>usuario</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Nombre usuario
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
+            <dd>
+                Nombre Usuario
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.apellido)
-        </dt>
+            <dt>
+                Apellido Usuario
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.apellido)
-        </dd>
+            <dd>
+                Fecha de Nacimiento
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.fecha_nacimiento)
-        </dt>
+            <dt>
+                Correo Usuario
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.fecha_nacimiento)
-        </dd>
+            <dd>
+                Contraseña Usuario
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.email)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.email)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.email)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.password)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.password)
-        </dd>
 
-       
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Editar el usuario "+ nombreUsuario, "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Reguesar ala lista ", "Index")
+    </p>
