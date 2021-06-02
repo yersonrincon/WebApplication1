@@ -128,7 +128,7 @@ namespace WebApplication1.Controllers
 
             }
         }
-        public ActionResul test()
+        public ActionResult test()
         {
             return View();
         }

@@ -2,49 +2,49 @@
 
 @{
     ViewBag.Title = "Details";
+    var nombreProveedor = Model.nombre;
 }
-
-<h2>Details</h2>
+<h2>Detalles del proveedor</h2>
 
 <div>
     <h4>proveedor</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.nombre)
+            Nombre 
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.nombre)
+           Nombre
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.direccion)
+           Dirreccion
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.direccion)
+           Dirreccio
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.telefono)
+            Telefono
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.telefono)
+            Telefono 
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.nombre_contacto)
+           Nombre Contacto
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.nombre_contacto)
+            Nombre Contacto
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar Provedor " + nombreProveedor , "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar a lista ", "Index")
 </p>

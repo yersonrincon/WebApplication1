@@ -73,7 +73,7 @@ namespace WebApplication1.Controllers
                 {
                     proveedor user = db.proveedor.Find(rolesEdit.id);
                     user.nombre = rolesEdit.nombre;
-               
+
 
                     db.SaveChanges();
                     return RedirectToAction("index");
