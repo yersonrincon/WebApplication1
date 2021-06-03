@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
+    var nombreCliente = Model.nombre;
 }
 
 <h2>Details</h2>
@@ -11,32 +12,32 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.nombre)
+            Nombre Cliente
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.nombre)
+            Nombre Cliente
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.documento)
+            Numero Documento
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.documento)
+            Numero Documento
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.email)
+            Correo Electronico
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.email)
+            Correo Electronico
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar el usuario " + nombreCliente , "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
 </p>

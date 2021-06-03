@@ -1,53 +1,53 @@
 ﻿@model WebApplication1.Models.producto
 
+
 <div>
     <h4>producto</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.nombre)
+            Nombre
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.nombre)
+            Nombre
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.percio_unitario)
+           Precio Unitario
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.percio_unitario)
+            Precio Unitario
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.descripcion)
+           Descripcion
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.descripcion)
+           Descripcion
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.cantidad)
+            Cantidad
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.cantidad)
+            Cantidad
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.id_proveedor)
+            ID_ Provedor 
         </dt>
 
         <dd>
-            @WebApplication1.Controllers.ProductoController.NombreProveedor(Model.id_proveedor)
-            @Html.DisplayFor(model => model.id_proveedor)
+            
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar Provedor " + nombreProveedor, "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar a lista ", "Index")
 </p>
