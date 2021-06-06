@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models;
+using System.Text;
 
 namespace WebApplication1.Controllers
 {
@@ -59,14 +61,14 @@ namespace WebApplication1.Controllers
             return sb.ToString();
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int  id)
         {
 
             try
             {
                 using (var db = new inventario2021Entities())
                 {
-                    usuario findUser = db.usuario.Where(a => a.id == id).FirstOrDefault();
+                    cliente findUser = db.cliente.Where(a => a.id ==id).FirstOrDefault();
                     return View(findUser);
                 }
             }
@@ -76,19 +78,21 @@ namespace WebApplication1.Controllers
                 return View();
             }
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public ActionResult Edit(cliente clienteEdit)
         {
             try
             {
                 using (var db = new inventario2021Entities())
                 {
-                    usuario user = db.usuario.Find(clienteEdit.id);
+                    cliente user = db.cliente.Find(clienteEdit.id);
                     user.nombre = clienteEdit.nombre;
-                    user.documento = clienteEdit.documento; 
+                    user.documento = clienteEdit.documento;
                     user.email = clienteEdit.email;
-                    
+
 
                     db.SaveChanges();
                     return RedirectToAction("index");

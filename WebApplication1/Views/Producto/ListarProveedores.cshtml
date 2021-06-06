@@ -1,10 +1,11 @@
 ﻿
 @model  IEnumerable<WebApplication1.Models.proveedor>
 
-<select class="from-control" id= "id_proveedor" name="id_proveedor">
-        
-        @foreach (var item in Model)
-        {
-<option value="@item.id">@item.nombre</option>  
-        }
+<select class="from-control" id="id_proveedor" name="id_proveedor">
+
+    @foreach (var item in Model)
+    {
+        <option value="@item.id">@item.nombre</option>
+
+    }
 </select>

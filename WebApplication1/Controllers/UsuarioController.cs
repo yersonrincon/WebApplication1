@@ -1,13 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Web;
 using System.Web.Mvc;
+using System.Text;
 using WebApplication1.Models;
-
 namespace WebApplication1.Controllers
 {
     public class UsuarioController : Controller
     {
+
+
+
         // GET: Usuario
         public ActionResult Index()
         {
@@ -107,8 +111,8 @@ namespace WebApplication1.Controllers
                 return View();
             }
         }
-        
-        public ActionResult Details (int id)
+
+        public ActionResult Details(int id)
         {
             using (var db = new inventario2021Entities())
             {
@@ -116,7 +120,7 @@ namespace WebApplication1.Controllers
                 return View(user);
             }
         }
-        
+
         public ActionResult Delete(int id)
         {
             using (inventario2021Entities db = new inventario2021Entities())
@@ -128,16 +132,7 @@ namespace WebApplication1.Controllers
 
             }
         }
-        public ActionResult test()
-        {
-            return View();
+        
         }
-    }
-}
-
-
-
-
-
-
-
+        }
+    

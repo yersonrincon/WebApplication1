@@ -16,6 +16,7 @@ namespace WebApplication1.Controllers
                 return View(db.proveedor.ToList());
             }
         }
+        
         public ActionResult Create()
 
         {

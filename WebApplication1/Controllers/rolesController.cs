@@ -17,6 +17,22 @@ namespace WebApplication1.Controllers
                 return View(db.roles.ToList());
             }
         }
+        public static string Nombreroles(int idusuario)
+        {
+            using (var db = new inventario2021Entities())
+            {
+                return db.proveedor.Find(idusuario).nombre;
+            }
+        }
+
+        public ActionResult Listarroles()
+        {
+            using (var db = new inventario2021Entities())
+            {
+                return PartialView(db.roles.ToList());
+            }
+        }
+
         public ActionResult Create()
 
         {

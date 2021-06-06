@@ -1,53 +1,63 @@
 ﻿@model WebApplication1.Models.producto
 
+@{
+    ViewBag.Title = "Details";
+    var nombreproveedor = Model.nombre;
+}
+
+<h2>Details</h2>
 
 <div>
     <h4>producto</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Nombre
+            @Html.DisplayNameFor(model => model.nombre)
         </dt>
 
         <dd>
-            Nombre
+            @Html.DisplayFor(model => model.nombre)
         </dd>
 
         <dt>
-           Precio Unitario
+            @Html.DisplayNameFor(model => model.percio_unitario)
         </dt>
 
         <dd>
-            Precio Unitario
+            @Html.DisplayFor(model => model.percio_unitario)
         </dd>
 
         <dt>
-           Descripcion
+            @Html.DisplayNameFor(model => model.descripcion)
         </dt>
 
         <dd>
-           Descripcion
+            @Html.DisplayFor(model => model.descripcion)
         </dd>
 
         <dt>
-            Cantidad
+            @Html.DisplayNameFor(model => model.cantidad)
         </dt>
 
         <dd>
-            Cantidad
+            @Html.DisplayFor(model => model.cantidad)
         </dd>
 
         <dt>
-            ID_ Provedor 
+            Proveedor
         </dt>
-
         <dd>
-            
+            @WebApplication1.Controllers.ProductoController.NombreProveedor(Model.id_proveedor)
         </dd>
 
     </dl>
+
+    @using (Html.BeginForm())
+    {
+@Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>}
 </div>
-<p>
-    @Html.ActionLink("Editar Provedor " + nombreProveedor, "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Regresar a lista ", "Index")
-</p>

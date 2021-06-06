@@ -39,10 +39,8 @@
         </dt>
 
         <dd>
-            Nombre Contacto
-        </dd>
-
-    </dl>
+            @WebApplication1.Controllers.ProductoController.NombreProveedor(Model.id)
+        </dd></dl>
 </div>
 <p>
     @Html.ActionLink("Editar Provedor " + nombreProducto , "Edit", new { id = Model.id }) |
