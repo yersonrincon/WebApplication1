@@ -16,7 +16,13 @@ namespace WebApplication1.Controllers
                 return View(db.proveedor.ToList());
             }
         }
-        
+        public static string NombreProveedor(int idProveedor)
+        {
+            using (var db = new inventario2021Entities())
+            {
+                return db.proveedor.Find(idProveedor).nombre;
+            }
+        }
         public ActionResult Create()
 
         {

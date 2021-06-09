@@ -17,20 +17,19 @@ namespace WebApplication1.Controllers
                 return View(db.producto_imagen.ToList());
             }
         }
-
-        public static string NombreProducto(int idproductoimagen)
+        public static string Nombreproducto(int idproducto)
         {
             using (var db = new inventario2021Entities())
             {
-                return db.proveedor.Find(idproductoimagen).nombre;
+                return db.producto.Find(idproducto).nombre;
             }
         }
 
-        public ActionResult Listarimagenes ()
+        public ActionResult ListarProducto()
         {
             using (var db = new inventario2021Entities())
             {
-                return PartialView(db.producto_imagen.ToList());
+                return PartialView(db.producto.ToList());
             }
         }
 

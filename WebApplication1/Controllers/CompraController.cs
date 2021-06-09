@@ -19,11 +19,11 @@ namespace WebApplication1.Controllers
                 return View(db.compra.ToList());
             }
         }
-       public static string NombreUsuario(int idUsuario)
+       public static string NombreUsuario(int idcliente)
        {
            using(var db =new inventario2021Entities())
           {
-                return db.compra.Find(idUsuario).nombre;
+                return db.compra.Find(idcliente).nombre;
             }
        }
         public ActionResult ListarUsuarios()

@@ -283,7 +283,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
@@ -306,12 +305,10 @@
     <Content Include="Views\Proveedor\Details.cshtml" />
     <Content Include="Views\Producto\index.cshtml" />
     <Content Include="Views\Producto\Create.cshtml" />
-    <Content Include="Views\Producto\ListarProveedores.cshtml" />
     <Content Include="Views\Producto\Details.cshtml" />
     <Content Include="Views\Producto\Edit.cshtml" />
     <Content Include="Views\Productoimagen\Index.cshtml" />
     <Content Include="Views\Productoimagen\Create.cshtml" />
-    <Content Include="Views\Productoimagen\View.cshtml" />
     <Content Include="Views\Productoimagen\Edit.cshtml" />
     <Content Include="Views\ProductoCompra\Index.cshtml" />
     <Content Include="Views\Compra\Index.cshtml" />
@@ -327,6 +324,14 @@
     <Content Include="Views\ProductoCompra\Details.cshtml" />
     <Content Include="Views\Productoimagen\Details.cshtml" />
     <Content Include="Views\Compra\Details.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\UsuarioRol\ListarNombreusuario.cshtml" />
+    <Content Include="Views\Producto\ListarProveedores.cshtml" />
+    <Content Include="Views\Compra\ListarUsuarios.cshtml" />
+    <Content Include="Views\Compra\ListarClientes.cshtml" />
+    <Content Include="Views\Productoimagen\ListarProducto.cshtml" />
+    <Content Include="Views\ProductoCompra\ListarProducto.cshtml" />
+    <Content Include="Views\ProductoCompra\Listarusuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

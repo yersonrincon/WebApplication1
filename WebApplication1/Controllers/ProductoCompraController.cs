@@ -18,22 +18,37 @@ namespace WebApplication1.Controllers
             }
         }
 
-        public static string NombreProductocompra(int idproductocompra)
+       
+        public static string Nombreproducto(int idproducto)
         {
             using (var db = new inventario2021Entities())
             {
-                return db.proveedor.Find(idproductocompra).nombre;
+                return db.producto.Find(idproducto).nombre;
             }
         }
 
-        public ActionResult ListarProveedores()
+        public ActionResult ListarProducto()
         {
             using (var db = new inventario2021Entities())
             {
-                return PartialView(db.producto_compra.ToList());
+                return PartialView(db.producto.ToList());
+            }
+        }
+        public static string Nombreusuario(int idusuario)
+        {
+            using (var db = new inventario2021Entities())
+            {
+                return db.cliente.Find(idusuario).nombre;
             }
         }
 
+        public ActionResult Listarusuario()
+        {
+            using (var db = new inventario2021Entities())
+            {
+                return PartialView(db.cliente.ToList());
+            }
+        }
         public ActionResult Create()
         {
             return View();

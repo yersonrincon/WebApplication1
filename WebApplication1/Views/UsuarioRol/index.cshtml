@@ -22,10 +22,10 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.idUsuario)
+                @WebApplication1.Controllers.UsuarioRolController.Nombreusuario(item.idUsuario)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.idRol)
+                @WebApplication1.Controllers.UsuarioRolController.Nombrerol(item.idRol)
             </td>
             <td>
                 @Html.ActionLink("Editar", "Edit", new { id = item.id }) |

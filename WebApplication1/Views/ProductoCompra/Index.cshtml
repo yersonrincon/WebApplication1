@@ -30,7 +30,7 @@
                 @Html.DisplayFor(modelItem => item.id_compra)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.id_producto)
+                @WebApplication1.Controllers.ProductoCompraController.Nombreproducto(item.id_producto)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.cantidad)

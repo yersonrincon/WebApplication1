@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models;
 
@@ -19,26 +17,44 @@ namespace WebApplication1.Controllers
             }
         }
 
-    /*    public static string NombreUsuarioRol(int idUsuario)
+        public static string Nombreusuario(int idusuario)
         {
             using (var db = new inventario2021Entities())
             {
-             return db.usuariorol.Find(idUsuario).nombre;
+                return db.usuario.Find(idusuario).nombre;
             }
         }
 
-        public ActionResult ListarUsuario()
+        public ActionResult ListarNombreusuario()
         {
             using (var db = new inventario2021Entities())
             {
-                return PartialView(db.usuariorol.ToList());
+                return PartialView(db.usuario.ToList());
             }
         }
-    */
+
+
+        public static string Nombrerol(int idrol)
+        {
+            using (var db = new inventario2021Entities())
+            {
+                return db.roles.Find(idrol).descripcion;
+            }
+        }
+        public ActionResult ListarNombrerol()
+        {
+            using (var db = new inventario2021Entities())
+            {
+                return PartialView(db.roles.ToList());
+            }
+        }
         public ActionResult Create()
+
         {
             return View();
+
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
