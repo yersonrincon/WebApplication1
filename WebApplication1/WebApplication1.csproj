@@ -225,6 +225,7 @@
     <Compile Include="Models\proveedor.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Reporte.cs" />
     <Compile Include="Models\roles.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -327,11 +328,15 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\UsuarioRol\ListarNombreusuario.cshtml" />
     <Content Include="Views\Producto\ListarProveedores.cshtml" />
-    <Content Include="Views\Compra\ListarUsuarios.cshtml" />
     <Content Include="Views\Compra\ListarClientes.cshtml" />
     <Content Include="Views\Productoimagen\ListarProducto.cshtml" />
     <Content Include="Views\ProductoCompra\ListarProducto.cshtml" />
     <Content Include="Views\ProductoCompra\Listarusuario.cshtml" />
+    <Content Include="Views\UsuarioRol\ListarNombrerol.cshtml" />
+    <Content Include="Views\Producto\Reporte.cshtml" />
+    <Content Include="Views\Usuario\Login.cshtml" />
+    <Content Include="Views\Usuario\ListarUsuario.cshtml" />
+    <Content Include="Views\Compra\ListarUsuarios.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

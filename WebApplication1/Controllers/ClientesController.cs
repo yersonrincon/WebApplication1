@@ -84,6 +84,9 @@ namespace WebApplication1.Controllers
 
         public ActionResult Edit(cliente clienteEdit)
         {
+            if (!ModelState.IsValid)
+                return View();
+            
             try
             {
                 using (var db = new inventario2021Entities())

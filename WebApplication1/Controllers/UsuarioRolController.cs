@@ -120,6 +120,7 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(usuariorol usuariorolEdit)
         {
+           
             try
             {
                 using (var db = new inventario2021Entities())

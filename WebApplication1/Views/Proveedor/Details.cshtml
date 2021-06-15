@@ -4,26 +4,26 @@
     ViewBag.Title = "Details";
     var nombreProducto = Model.nombre;
 }
-<h2>Detalles del proveedor</h2>
+<h2>Detalles del Proveedor: @nombreProducto</h2>
 
 <div>
-    <h4>proveedor</h4>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Nombre 
+            Nombre
         </dt>
 
         <dd>
-           Nombre
+            @Html.DisplayFor(model => model.nombre)
         </dd>
 
         <dt>
-           Dirreccion
+            Dirreccion
         </dt>
 
         <dd>
-           Dirreccio
+            @Html.DisplayFor(model => model.direccion)
         </dd>
 
         <dt>
@@ -31,18 +31,22 @@
         </dt>
 
         <dd>
-            Telefono 
+            @Html.DisplayFor(model => model.telefono)
         </dd>
 
         <dt>
-           Nombre Contacto
+            Nombre contacto
         </dt>
+        <dd>
+            @Html.DisplayFor(model => model.nombre_contacto)
+        </dd>
 
         <dd>
             @WebApplication1.Controllers.ProductoController.NombreProveedor(Model.id)
-        </dd></dl>
+        </dd>
+    </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar Provedor " + nombreProducto , "Edit", new { id = Model.id }) |
+    
     @Html.ActionLink("Regresar a lista ", "Index")
 </p>

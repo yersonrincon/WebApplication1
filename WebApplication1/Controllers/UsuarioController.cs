@@ -4,12 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Text;
+using System.Web.Security;
 using WebApplication1.Models;
 namespace WebApplication1.Controllers
 {
     public class UsuarioController : Controller
     {
-
+     [Authorize]
 
 
         // GET: Usuario
@@ -88,7 +89,11 @@ namespace WebApplication1.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(usuario usuarioEdit)
+
         {
+            if (!ModelState.IsValid)
+                return View();
+
             try
             {
                 using (var db = new inventario2021Entities())
@@ -132,7 +137,38 @@ namespace WebApplication1.Controllers
 
             }
         }
-        
+        public ActionResult Login(string message = "")
+        {
+            ViewBag.Message = message;
+            return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Login(string email, string password)
+        {
+            string passEncrip = UsuarioController.HashSHA1(password);
+            using (var db = new inventario2021Entities())
+            {
+                var userLogin = db.usuario.FirstOrDefault(e => e.email == email && e.password == passEncrip);
+                if (userLogin != null)
+                {
+                    FormsAuthentication.SetAuthCookie(userLogin.email, true);
+                    Session["User"] = userLogin;
+                    return RedirectToAction("index");
+                }
+                else
+                {
+                    return Login("Verifique sus datos");
+                }
+            }
         }
-    
+
+        [Authorize]
+        public ActionResult CloseSession()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("index", "Home");
+        }
+    }
+}

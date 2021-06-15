@@ -1,8 +1,8 @@
-﻿@model WebApplication1.Models.usuariorol
+﻿@model IEnumerable<WebApplication1.Models.usuario>
 
-@{
-    ViewBag.Title = "ListarNombreusuario";
-}
-
-<h2>ListarNombreusuario</h2>
-
+    <select class="form-control" id="id_usuario" name="id_usuario">
+        @foreach (var item in Model)
+        {
+            <option value="@item.id">@item.nombre</option>
+        }
+    </select>

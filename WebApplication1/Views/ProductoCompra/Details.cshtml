@@ -1,11 +1,10 @@
 ﻿@model WebApplication1.Models.producto_compra
 
-<div>
-    <h4>producto_compra</h4>
+    <h4>Producto Compra</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.id_compra)
+           Compra
         </dt>
 
         <dd>
@@ -13,15 +12,15 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.id_producto)
+            Producto
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.id_producto)
+            @WebApplication1.Controllers.ProductoCompraController.Nombreproducto(Model.id_producto)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.cantidad)
+            Cantidad
         </dt>
 
         <dd>
@@ -29,8 +28,9 @@
         </dd>
 
     </dl>
-</div>
+
 <p>
     @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
     @Html.ActionLink("Regrasar a la lista", "Index")
 </p>
+      

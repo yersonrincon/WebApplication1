@@ -102,7 +102,10 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(producto_imagen producto_imagenEdit)
         {
-            try
+            
+                if (!ModelState.IsValid)
+                    return View();
+                try
             {
                 using (var db = new inventario2021Entities())
                 {

@@ -11,7 +11,8 @@ namespace WebApplication1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class producto
     {
         internal object precio_unitario;
@@ -24,6 +25,7 @@ namespace WebApplication1.Models
         }
     
         public int id { get; set; }
+        [Required(ErrorMessage = "El nombre no puede ser vacio")]
         public string nombre { get; set; }
         public int percio_unitario { get; set; }
         public string descripcion { get; set; }
