@@ -17,11 +17,11 @@ namespace WebApplication1.Models
     {
         public int id { get; set; }
         public int id_compra { get; set; }
+        [Required(ErrorMessage = "el nombre no pede estar vacio")]
         public int id_producto { get; set; }
+        [Required(ErrorMessage = "el valor no puede estar vacio")]
         public int cantidad { get; set; }
-        [Required(ErrorMessage = "El nombre no puede ser vacio")]
         public virtual compra compra { get; set; }
-        [Required(ErrorMessage = "El nombre no puede ser vacio")]
         public virtual producto producto { get; set; }
     }
 }

@@ -1,40 +1,44 @@
 ﻿@model WebApplication1.Models.producto_compra
 
-@using (Html.BeginForm()) 
+@{
+    ViewBag.Title = "Create";
+}
+<h2>Crear</h2>
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>producto_compra</h4>
+      
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        <label class="control-label col-md-2" for="id_compra">Compra  </label>
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.id_compra, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.id_compra, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2" for="id_compra">Compra</label>
+            <div class="col-md-10">
+                @Html.Action("Listaridcompra")
+                @Html.ValidationMessageFor(model => model.id_compra, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label class="control-label col-md-2" for="id_producto">Producto </label>
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.id_producto, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.id_producto, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2" for="id_producto">Producto </label>
+            <div class="col-md-10">
+                @Html.Action("ListarProducto")
+                @Html.ValidationMessageFor(model => model.id_producto, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label class="control-label col-md-2" for="id_producto">Cantidad </label>
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.cantidad, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.cantidad, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2" for="id_producto">Cantidad </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cantidad, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.cantidad, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-danger" />
+                <input type="submit" value="Crear" class="btn btn-danger" />
             </div>
         </div>
     </div>

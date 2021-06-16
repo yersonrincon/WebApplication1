@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models;
@@ -34,19 +35,19 @@ namespace WebApplication1.Controllers
                 return PartialView(db.producto.ToList());
             }
         }
-        public static string Nombreusuario(int idusuario)
+        public static string IDcompra(int idcompra)
         {
             using (var db = new inventario2021Entities())
             {
-                return db.cliente.Find(idusuario).nombre;
+                return db.compra.Find(idcompra).nombre;
             }
         }
 
-        public ActionResult Listarusuario()
+        public ActionResult Listaridcompra()
         {
             using (var db = new inventario2021Entities())
             {
-                return PartialView(db.cliente.ToList());
+                return PartialView(db.compra.ToList());
             }
         }
         public ActionResult Create()
@@ -56,7 +57,7 @@ namespace WebApplication1.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(producto_compra newproducto_compra)
+        public ActionResult Create(producto_compra compra)
         {
             if (!ModelState.IsValid)
                 return View();
@@ -65,7 +66,7 @@ namespace WebApplication1.Controllers
             {
                 using (var db = new inventario2021Entities())
                 {
-                    db.producto_compra.Add(newproducto_compra);
+                    db.producto_compra.Add(compra);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -76,7 +77,19 @@ namespace WebApplication1.Controllers
                 return View();
             }
         }
+        public static string HashSHA1(string value)
+        {
+            var sha1 = System.Security.Cryptography.SHA1.Create();
+            var inputBytes = Encoding.ASCII.GetBytes(value);
+            var hash = sha1.ComputeHash(inputBytes);
 
+            var sb = new StringBuilder();
+            for (var i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("X2"));
+            }
+            return sb.ToString();
+        }
         public ActionResult Details(int id)
         {
             using (var db = new inventario2021Entities())
