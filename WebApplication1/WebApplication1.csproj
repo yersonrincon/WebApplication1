@@ -345,6 +345,7 @@
     <Content Include="Views\Usuario\ListarUsuario.cshtml" />
     <Content Include="Views\Compra\ListarUsuarios.cshtml" />
     <Content Include="Views\ProductoCompra\Listaridcompra.cshtml" />
+    <Content Include="Views\Proveedor\uploadCSV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
