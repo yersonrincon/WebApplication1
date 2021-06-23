@@ -23,12 +23,12 @@
                 <ul class="nav navbar-nav">
 
                     <li>@Html.ActionLink("iniciar sesion", "Login", "Usuario")</li>
-                    <li>@Html.ActionLink("Salir", "CloseSession", "Usuario")</li>
+                  
                   
 
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+                        <li>@Html.ActionLink("Usuario", "index", "Usuario")</li>
                         <li>@Html.ActionLink("Proveedor", "Index", "Proveedor")</li>
                         <li>@Html.ActionLink("Producto", "index", "Producto")</li>
                         <li>@Html.ActionLink("Clientes", "index", "Clientes")</li>

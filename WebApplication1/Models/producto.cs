@@ -15,7 +15,7 @@ namespace WebApplication1.Models
 
     public partial class producto
     {
-        internal object precio_unitario;
+     
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public producto()

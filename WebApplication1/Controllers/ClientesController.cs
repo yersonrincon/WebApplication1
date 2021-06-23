@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models;
 using System.Text;
+using Rotativa;
 
 namespace WebApplication1.Controllers
 {
@@ -128,5 +129,37 @@ namespace WebApplication1.Controllers
                 return RedirectToAction("index");
             }
         }
-    }
-}
+        public ActionResult Reporte1()
+
+        {
+            try
+            {
+                var db = new inventario2021Entities();
+                var query = from tabcliente in db.cliente
+                            join tabproducto in db.producto on tabcliente.id equals tabproducto.id
+                            select new Reporte1
+                            {
+                                nombreproducto = tabproducto.nombre,
+                                descripcionproducto = tabproducto.descripcion,
+                                cantidadproducto = tabproducto.cantidad,
+                                nombrecliente = tabcliente.nombre,
+                                emailcliente = tabcliente.email,
+                                documentocliente = tabcliente.documento
+
+
+                            };
+                return View(query);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
+                public ActionResult ImprimirReporte1()
+                {
+                    return new ActionAsPdf("Reporte1") { FileName = "reporte.pdf" };
+                }
+            }
+        }
+   

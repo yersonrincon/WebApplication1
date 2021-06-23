@@ -15,10 +15,7 @@ namespace WebApplication1.Models
 
     public partial class proveedor
     {
-        internal object precio_unitario;
-        internal string descripcion;
-        internal int cantidad;
-        internal int id_proveedor;
+        
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public proveedor()
@@ -29,6 +26,7 @@ namespace WebApplication1.Models
         public int id { get; set; }
         [Required(ErrorMessage = "El nombre no puede ser vacio")]
         public string nombre { get; set; }
+        [Required(ErrorMessage = "La dirreccion no puede ser vacio")]
         public string direccion { get; set; }
         public string telefono { get; set; }
         public string nombre_contacto { get; set; }
