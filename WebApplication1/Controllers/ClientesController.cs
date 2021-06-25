@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.IO;
 using System.Web.Mvc;
 using WebApplication1.Models;
 using System.Text;
@@ -62,14 +63,14 @@ namespace WebApplication1.Controllers
             return sb.ToString();
         }
 
-        public ActionResult Edit(int  id)
+        public ActionResult Edit(int id)
         {
 
             try
             {
                 using (var db = new inventario2021Entities())
                 {
-                    cliente findUser = db.cliente.Where(a => a.id ==id).FirstOrDefault();
+                    cliente findUser = db.cliente.Where(a => a.id == id).FirstOrDefault();
                     return View(findUser);
                 }
             }
@@ -87,7 +88,7 @@ namespace WebApplication1.Controllers
         {
             if (!ModelState.IsValid)
                 return View();
-            
+
             try
             {
                 using (var db = new inventario2021Entities())
@@ -129,6 +130,67 @@ namespace WebApplication1.Controllers
                 return RedirectToAction("index");
             }
         }
+
+        public ActionResult nuevasCVS()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult nuevasCSV(HttpPostedFileBase fileForm)
+        {
+            //string para guardar la ruta
+            string filePath = string.Empty;
+
+            //condicion para saber si llego el archivo
+            if (fileForm != null)
+            {
+                //ruta de la carpeta que gurdara el archivo
+                string path = Server.MapPath("~/Uploads/");
+
+                //condicion para saber si la ruta de la carpeta existe
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                //obtener el nombre del archivo
+                filePath = path + Path.GetFileName(fileForm.FileName);
+                //obtener la extension del archivo
+                string extension = Path.GetExtension(fileForm.FileName);
+
+                //guardar el archivo
+                fileForm.SaveAs(filePath);
+
+                string csvData = System.IO.File.ReadAllText(filePath);
+
+                foreach (string row in csvData.Split('\n'))
+                {
+                    if (!string.IsNullOrEmpty(row))
+                    {
+                        var newcliente = new cliente
+                        {
+                            nombre = row.Split(';')[0],
+                            documento = row.Split(';')[1],
+                            email = row.Split(';')[2],
+
+                        };
+
+                        using (var db = new inventario2021Entities())
+                        {
+                            db.cliente.Add(newcliente);
+                            db.SaveChanges();
+                        }
+                    }
+                }
+            }
+
+            return View();
+        }
+
+
+
         public ActionResult Reporte1()
 
         {
@@ -156,10 +218,17 @@ namespace WebApplication1.Controllers
                 return View();
             }
         }
-                public ActionResult ImprimirReporte1()
-                {
-                    return new ActionAsPdf("Reporte1") { FileName = "reporte.pdf" };
-                }
-            }
+        public ActionResult ImprimirReporte1()
+        {
+            return new ActionAsPdf("Reporte1") { FileName = "reporte.pdf" };
         }
+
+    }
+}
+
+
+
+
+   
+
    

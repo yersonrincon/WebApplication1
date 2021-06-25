@@ -348,6 +348,7 @@
     <Content Include="Views\ProductoCompra\Listaridcompra.cshtml" />
     <Content Include="Views\Clientes\Reporte1.cshtml" />
     <Content Include="Views\Proveedor\nuevavistaCSV.cshtml" />
+    <Content Include="Views\Clientes\nuevasCVS.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
