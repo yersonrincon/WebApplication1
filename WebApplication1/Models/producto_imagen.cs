@@ -18,7 +18,6 @@ namespace WebApplication1.Models
         public int id { get; set; }
         [Required(ErrorMessage = "El nombre no puede ser vacio")]
         public string imagen { get; set; }
-
         public int id_producto { get; set; }
     
         public virtual producto producto { get; set; }

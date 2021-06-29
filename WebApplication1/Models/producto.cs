@@ -28,7 +28,9 @@ namespace WebApplication1.Models
         [Required(ErrorMessage = "El nombre no puede ser vacio")]
         public string nombre { get; set; }
         public int percio_unitario { get; set; }
+        [Required(ErrorMessage = "La descripcion no puede ser vacio")]
         public string descripcion { get; set; }
+        [Required(ErrorMessage = "La cantidad no puede ser vacio")]
         public int cantidad { get; set; }
         public int id_proveedor { get; set; }
     

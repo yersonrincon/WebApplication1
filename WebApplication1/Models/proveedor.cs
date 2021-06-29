@@ -28,7 +28,9 @@ namespace WebApplication1.Models
         public string nombre { get; set; }
         [Required(ErrorMessage = "La dirreccion no puede ser vacio")]
         public string direccion { get; set; }
+        [Required(ErrorMessage = "El telefono no puede ser vacio")]
         public string telefono { get; set; }
+        [Required(ErrorMessage = "El nombre contacto no puede ser vacio")]
         public string nombre_contacto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
